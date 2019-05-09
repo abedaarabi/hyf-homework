@@ -1,0 +1,180 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+.boudy{
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container h2{text-align: center;
+    color: rgb(241, 207, 94);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 2em;
+    
+    text-transform: uppercase;
+}
+.container p{
+    text-align: left;
+    margin: 2em;
+    color: rgb(75, 75, 75);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+
+}
+div.relative {
+    position: relative;
+    left: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: lightgreen;
+}
+.progress-bar{
+    counter-reset: step;
+}
+.progress-bar li{
+    list-style-type: none ;
+    float: left;
+    width: 20%;
+    position: relative;
+    text-align: center;
+}
+.progress-bar li:before{
+    content: counter(step);
+    counter-increment:step; 
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+.progress-bar li::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+.progress-bar li:first-child::after{
+    content: none;
+}
+.progress-bar li.active{
+    color: #ffc107;
+    
+}
+.progress-bar li.active::before{
+    border-bottom-color: #ffc107;
+    
+}
+.progress-bar li.active + li::after{
+    background-color: #ffc107;
+    
+   
+}
+.wrapper{
+    position: absolute;
+    top: 50%;
+    right: 40em;
+    transform: translate(-50%, -50% );
+    
+    
+}
+.contact-us{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background: rgba(0,0,0,0.7);
+    padding: 40px 50px;
+    border-radius: 5px;
+}
+.title{
+    font-size: 20px;
+    line-height: 1.25em;
+    
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #ffc107;
+    padding-bottom: 50px;
+}
+.input-fields{
+    padding: 0 30px;
+    
+}
+.input-fields .item{
+    width: 100%;
+    padding-bottom: 15px;
+    text-align: center;
+}
+.input-fields .item .label{
+    display: block;
+    font-size: 1em;
+    color: #ffecb3;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+}
+.input-fields .item .input,
+.input-fields .items {
+    background: transparent;
+    border: 0;
+    border: 1px solid #ffecb3;
+    width: 60%;
+    padding: 8px 10px;
+    font-size: 1em;
+    color: #ffecb3;
+    border-radius: 3px;
+}
+.text-area{
+    background: transparent;
+    border: 0;
+    border: 1px solid #ffecb3;
+    width: 60%;
+    padding: 8px 10px;
+    font-size: 1em;
+    color: #ffecb3;
+    border-radius: 3px;
+}
+.title.last{
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+   
+
+}
+.btn{
+    margin: 0 30px;
+    background: #ffc107;
+    color: #ffecb3;
+    font-size: 1.25em;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin: 0 20px auto;
+
+
+}
+.checkbox{
+   position: relative;
+   
+}
+.checkbox{
+    background: #8f8e8d;
+    padding: -10px ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 20px auto;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    text-align: center;
+
+}
