@@ -27,7 +27,7 @@ else{
 const width = 8;
 const height = 10;
 const depth = 8;
-const volumeInMeters =  width * height * depth + 1000; //the volume with the garden 'total'
+const volumeInMeters =  width * height * depth + 100; //the volume with the garden 'total'
 const housePrice = volumeInMeters * 2.5 * 1000 + 100 * 300;
 
 console.log(housePrice );
