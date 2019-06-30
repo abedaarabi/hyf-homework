@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main {
+            display: flex;
+            flex-direction: column;
+            max-width: 30%;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .players {
+            display: flex;
+            width: 100%;
+        }
+
+        .players > div {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            height: 100px;
+            flex-direction: column;
+        }
+
+        .first {
+            border-right: 1px solid green;
+        }
+
+        .timer {
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class='main'>
+        <div class='timer'>
+            <input type="number" >
+            <button>start</button>
+        </div>
+        <div class='players'>
+            <div class='first'><p>type S</p><p id='count-1'>0</p></div>
+            <div><p>type L</p><p id='count-2'>0</p></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
