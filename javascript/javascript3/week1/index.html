@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .btncontainer{
+            text-align: center;
+        }
+
+        body {
+            font-family: Roboto;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="input-group mb-3">
+      <input
+        id="input"
+        type="text"
+        class="form-control"
+        placeholder="City. . ."
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+    <div class="btncontainer">
+      <button id="btn" type="button" class="btn btn-primary mx-auto">
+        get weather
+      </button>
+    </div>
+    <div>
+      <p id="weather"></p>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
