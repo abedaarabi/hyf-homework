@@ -7,7 +7,7 @@ update task set due_date = now() where id = 1;
 #Change the task status with these attributes: 
 update task  set status_id = 1 where id = 2; 
 #Mark a task as complete with this attribute:
-              T_T
+update task set status_id = 1 WHERE id = 3;             
 #Delete task with this attribute:
 delete from task where id = 4;
 
