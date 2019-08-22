@@ -16,7 +16,7 @@ set names utf8mb4;
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NULL,
   `class_id` varchar(255) NULL,
-  PRIMARY KEY (`class_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_class` FOREIGN KEY (`class_id`) REFERENCES `Class` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 #Create index
