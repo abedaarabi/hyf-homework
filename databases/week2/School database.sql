@@ -19,6 +19,8 @@ set names utf8mb4;
   PRIMARY KEY (`class_id`),
   CONSTRAINT `fk_class` FOREIGN KEY (`class_id`) REFERENCES `Class` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+#Create index
+alter table student add index index_name (name);
 #Data Inputs
 /*Class*/
 insert into class (name, begins, ends) values ('09', now(), '2022-01-01');
