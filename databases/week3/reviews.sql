@@ -1,0 +1,12 @@
+use food;
+show tables;
+select * from review;
+insert into review values (null, 'Amazing', 'cooked good', 2, 5, now());
+select * from review;
+insert into review values (null, 'too bad', 'cooked not good', 3, 1, now());
+select * from review;
+select * from review where Review.id = 1;
+update Review set Review.stras = 4 where Review.id = 1;
+select * from Review; 
+delete from Review where Review.id = 1;
+select * from Review; 
