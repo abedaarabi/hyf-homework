@@ -5,9 +5,111 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(28, 139, 207);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+h3  {
+  color: rgb(252, 252, 252);
+}
+
+
+input[type="checkbox"]:checked + label {
+  color: rgb(217, 255, 0);
+  text-decoration: line-through;
+}
+
+input.defaultCheckbox {
+  width: 20px;
+  height: 20px;
+  transform: scale(1.5);
+
+  color: #eb554b;
+}
+
+input[type="checkbox"]:not(:checked) {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 1.05em;
+  line-height: 1.7;
+  cursor: pointer;
+  background-color: red;
+}
+
+.test {
+  background-color: aliceblue;
+}
+
+.CutomButton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 2px;
+  cursor: pointer;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.addTodo {
+  background-color: #eb554b;
+  border: none;
+  color: white;
+  width: 400px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 6px 2px;
+  cursor: pointer;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.text {
+  background-color: rgb(121, 116, 116);
+  padding: 8px;
+  margin: 10px;
+  font-size: large;
+  color: aliceblue;
+  border-left: 5px salmon solid;
+}
+
+.noItem {
+  background-color: #3b3b3b;
+  margin: auto;
+  margin-top: 80px;
+  width: 40%;
+  border-right: 8px solid rgb(223, 86, 86);
+  border-left: 8px solid rgb(223, 86, 86);
+  padding: 10px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: larger;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.seconds {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+
+  font-size: large;
+  background-color: #19507e;
+  padding: 10px;
+  color: #70cbe2;
 }

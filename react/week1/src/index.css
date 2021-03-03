@@ -1,0 +1,33 @@
+body {
+  background-color: rgb(184, 184, 184);
+}
+
+.list {
+  background-color: rgb(41, 125, 204);
+  font-size: medium;
+  color: aliceblue;
+  width: 600px;
+  margin: 10px;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: 5px;
+  border-left: 10px solid rgb(211, 82, 82);
+  border-radius: 10px;
+}
+
+.items {
+  padding-top: 20px;
+  margin: auto;
+  width: 40%;
+}
+.items h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: rgb(255, 255, 255);
+  margin-left: 10px;
+}
