@@ -90,7 +90,6 @@ function Addtodo(props) {
     });
 
     setAddTodo(newAddTodo);
-    console.log(...newAddTodo);
   };
 
   const newArray = (id) => {
