@@ -1,9 +1,10 @@
 import "./App.css";
-import Addtodo from "./Todo";
+
+import Additem from "./component/Additem";
 function App() {
   return (
     <div className="App">
-      <Addtodo redLine="line" />
+      <Additem redLine="line" />
     </div>
   );
 }
