@@ -1,6 +1,6 @@
 import React from "react";
 const moment = require("moment");
-export default function Form({ addNewShift }) {
+export default function Form({ addNewShift, errorMassege }) {
   const [inputValue, setInputValue] = React.useState({
     descreption: "",
     date: "",
@@ -10,7 +10,11 @@ export default function Form({ addNewShift }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!inputValue.descreption || !inputValue.date) return;
+    if (!inputValue.descreption || !inputValue.date) {
+      return errorMassege(true);
+    } else {
+      errorMassege(false);
+    }
     if (inputValue.date < formated) {
       return alert("wrong date");
     }

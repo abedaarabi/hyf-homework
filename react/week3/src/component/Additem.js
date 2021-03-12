@@ -4,6 +4,11 @@ import Item from "./Item";
 
 export default function Additem() {
   const [item, setItem] = React.useState([]);
+  const [err, setErr] = React.useState(false);
+
+  const errorMassege = (input) => {
+    return setErr(input);
+  };
 
   const addNewShift = (descreption, date) => {
     const inputItem = item.concat({
@@ -51,7 +56,8 @@ export default function Additem() {
       >
         what you have for today
       </h4>
-      <Form addNewShift={addNewShift} />
+      <Form addNewShift={addNewShift} errorMassege={errorMassege} />
+      <div></div>
       <div>
         <div>
           you have
@@ -68,6 +74,19 @@ export default function Additem() {
           todo.
         </div>
       </div>
+      {err ? (
+        <p
+          style={{
+            backgroundColor: "red",
+            color: "blue",
+            margin: "auto",
+            with: 60,
+          }}
+        >
+          Please fill the inputs
+        </p>
+      ) : null}
+
       {item.length
         ? item.map((item) => {
             return (
