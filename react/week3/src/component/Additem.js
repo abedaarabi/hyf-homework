@@ -74,32 +74,40 @@ export default function Additem() {
           todo.
         </div>
       </div>
-      {err ? (
-        <p
-          style={{
-            backgroundColor: "red",
-            color: "blue",
-            margin: "auto",
-            with: 60,
-          }}
-        >
-          Please fill the inputs
-        </p>
-      ) : null}
+      <div>
+        {err ? (
+          <p
+            style={{
+              color: "white",
+              backgroundColor: "red",
+              width: 200,
+              margin: "auto",
+            }}
+          >
+            Please fill the inputs
+          </p>
+        ) : (
+          setTimeout(() => {
+            setErr(false);
+          }, 3000)
+        )}
+      </div>
 
-      {item.length
-        ? item.map((item) => {
-            return (
-              <Item
-                key={item.id}
-                item={item}
-                removeItem={removeItem}
-                lineThrough={lineThrough}
-                updateDescription={updateDescription}
-              />
-            );
-          })
-        : "No Items"}
+      {item.length ? (
+        item.map((item) => {
+          return (
+            <Item
+              key={item.id}
+              item={item}
+              removeItem={removeItem}
+              lineThrough={lineThrough}
+              updateDescription={updateDescription}
+            />
+          );
+        })
+      ) : (
+        <p> No Items</p>
+      )}
     </div>
   );
 }
