@@ -7,7 +7,7 @@ export default function Additem() {
   const [err, setErr] = React.useState(false);
 
   const errorMassege = (input) => {
-    return setErr(input);
+    setErr(input);
   };
 
   const addNewShift = (descreption, date) => {

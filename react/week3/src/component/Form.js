@@ -11,16 +11,14 @@ export default function Form({ addNewShift, errorMassege }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!inputValue.descreption || !inputValue.date) {
-      return errorMassege(true);
+      errorMassege(true);
+    } else if (inputValue.date < formated) {
+      return alert("wrong date");
     } else {
       errorMassege(false);
+      addNewShift(inputValue.descreption, inputValue.date);
+      setInputValue({ descreption: "", date: "" });
     }
-    if (inputValue.date < formated) {
-      return alert("wrong date");
-    }
-
-    addNewShift(inputValue.descreption, inputValue.date);
-    setInputValue({ descreption: "", date: "" });
   };
 
   return (
