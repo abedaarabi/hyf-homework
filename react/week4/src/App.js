@@ -1,9 +1,10 @@
 import "./App.css";
-
+import Input from "./component/Input";
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <h1>Github Profile</h1>
+      <Input />
     </div>
   );
 }
