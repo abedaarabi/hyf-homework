@@ -26,7 +26,7 @@ export default function Input() {
       } else {
         didMount.current = true;
       }
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timeOut);
   }, [inputValue]);
 
