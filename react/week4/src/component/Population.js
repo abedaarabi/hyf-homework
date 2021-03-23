@@ -32,7 +32,7 @@ export default function Population() {
           <Route exact path="/">
             <Year years={population} />
           </Route>
-          <Route path="/year/:id">
+          <Route path="/:id">
             <Details detail={population} />
           </Route>
           <Route path="*">
@@ -50,7 +50,7 @@ function Year({ years }) {
     <div>
       {years.map((year) => (
         <div key={year.Population}>
-          <Link to={`/year/${year.Population}`}>
+          <Link to={`/${year.Population}`}>
             <h3>{year["ID Year"]}</h3>
           </Link>
         </div>
@@ -59,9 +59,8 @@ function Year({ years }) {
   );
 }
 
-function Details({ detail, match }) {
+function Details({ detail }) {
   const params = useParams();
-  console.log(match);
 
   const param = detail.find((year) => Number(params.id) === year.Population);
 
