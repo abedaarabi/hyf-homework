@@ -17,12 +17,10 @@ mealRouter.get("/all", async (request, response) => {
 mealRouter.get("/", async (req, res) => {
   try {
     let data;
-    if (req.query.id || req.query.price) {
-      data = await knex("meal")
-        .where({
-          id: req.query.id,
-        })
-        .orWhere({ price: req.query.price });
+    if (req.query.id) {
+      data = await knex("meal").where({
+        id: req.query.id,
+      });
     } else {
       data = await knex("meal");
     }

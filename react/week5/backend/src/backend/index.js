@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 // const router = express.Router();
+const cors = require("cors");
+
+app.use(cors()); // Use this after the variable declaration
 
 const mealRouter = require("./api/meal.js");
 const reservationsRouter = require("./api/reservations");
@@ -14,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // router.use("/concerts", concertsRouter);
-app.use("/meal", mealRouter);
+app.use("/", mealRouter);
 app.use("/reservations", reservationsRouter);
 app.use("/reviews", reviewsRouter);
 
