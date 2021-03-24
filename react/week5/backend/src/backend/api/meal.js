@@ -3,7 +3,7 @@ const knex = require("../database");
 const mealRouter = express.Router();
 
 /** Get Request **/
-mealRouter.get("/all", async (request, response) => {
+mealRouter.get("/meals", async (request, response) => {
   try {
     const data = await knex("meal");
 
@@ -57,7 +57,7 @@ mealRouter.delete("/", async (req, res) => {
 });
 
 /** Post Request **/
-mealRouter.post("/", async (req, res) => {
+mealRouter.post("/meal", async (req, res) => {
   try {
     const newConcert = await knex("meal").insert({
       id: req.body.id,
@@ -65,7 +65,7 @@ mealRouter.post("/", async (req, res) => {
       reviews: req.body.reviews,
       limit: req.body.limit,
       created_date: req.body.created_date,
-      reservations: req.bodyreservations,
+      // reservations: req.body.reservations,
       price: req.body.price,
     });
     res.json(newConcert);
