@@ -1,7 +1,7 @@
 import { React } from "react";
 import { useForm } from "react-hook-form";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-function MealForm() {
+function MealForm({ postData }) {
   const { register, handleSubmit } = useForm("");
 
   const onSubmit = (data) => {
@@ -15,6 +15,7 @@ function MealForm() {
         .post("http://localhost:5000/meal", data)
         .then((response) => console.log(response))
         .catch((err) => console.log(err));
+      postData(data);
     }
   };
   return (

@@ -15,7 +15,7 @@ function ReservationFrom({ postItem }) {
   const onSubmit = (data) => {
     data.id = Math.floor(Math.random() * 100);
     data.mealId = params.id;
-
+    console.log(data);
     if (!data.name || !data.email) {
       return alert("Inputs Empty");
     } else {

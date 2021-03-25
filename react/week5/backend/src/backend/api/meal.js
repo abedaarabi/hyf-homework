@@ -9,29 +9,29 @@ mealRouter.get("/meals", async (request, response) => {
 
     response.json(data);
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 });
 
 /** Get Request **/
-mealRouter.get("/", async (req, res) => {
-  try {
-    let data;
-    if (req.query.id) {
-      data = await knex("meal").where({
-        id: req.query.id,
-      });
-    } else {
-      data = await knex("meal");
-    }
-    data.length == 0
-      ? res.send(`<h1 style = color:red> Meal not Founded </h1>`)
-      : console.log(data);
-    res.json(data);
-  } catch (error) {
-    console.log(error);
-  }
-});
+// mealRouter.get("/", async (req, res) => {
+//   try {
+//     let data;
+//     if (req.query.id) {
+//       data = await knex("meal").where({
+//         id: req.query.id,
+//       });
+//     } else {
+//       data = await knex("meal");
+//     }
+//     data.length == 0
+//       ? res.send(`<h1 style = color:red> Meal not Founded </h1>`)
+//       : console.log(data);
+//     res.json(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 /** Put Request **/
 mealRouter.put("/", async (req, res) => {
@@ -46,7 +46,7 @@ mealRouter.put("/", async (req, res) => {
 });
 
 /** Delete Request **/
-mealRouter.delete("/", async (req, res) => {
+mealRouter.delete("/deletemeal", async (req, res) => {
   try {
     const data = await knex("meal").where({ id: req.query.id }).del();
 

@@ -1,16 +1,24 @@
 import { React, useState, useEffect } from "react";
 import ReservationFrom from "./ReservationFrom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 
 function Reservations() {
   const [reservations, setReservations] = useState([]);
-
+  const params = useParams();
+  console.log(params.id);
   const addItem = (data) => {
     const newReservations = reservations.concat(data);
     setReservations(newReservations);
   };
 
   const fetctData = () => {
-    fetch("http://localhost:5000/reservations")
+    fetch(`http://localhost:5000/reservations/${params.id}`)
       .then((res) => res.json())
       .then((data) => setReservations(data))
       .catch((err) => console.log(err));

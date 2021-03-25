@@ -15,16 +15,22 @@ export function Home() {
   const [loading, setLoading] = useState(true);
 
   const fetctData = async () => {
-    const response = await (await fetch("http://localhost:5000/")).json();
+    const response = await (await fetch("http://localhost:5000/meals")).json();
+    console.log(response);
     setMeals(response);
     setLoading(false);
   };
 
-  const removeMeal = async (id) => {
+  const postData = (data) => {
+    const newpost = meals.concat(data);
+    setMeals(newpost);
+  };
+
+  const deleteMeal = async (id) => {
     const reminMeal = meals.filter((meal) => meal.id !== id);
     const axios = require("axios");
-    await axios.delete(`http://localhost:5000/reservations?id=${id}`);
-    console.log(reminMeal);
+    await axios.delete(`http://localhost:5000/deletemeal?id=${id}`);
+
     setMeals(reminMeal);
   };
 
@@ -32,7 +38,7 @@ export function Home() {
     document.title = "Meal Share";
     fetctData();
   }, []);
-  console.log(loading, meals);
+  console.log(meals);
   return (
     <Router>
       <div>
@@ -51,14 +57,14 @@ export function Home() {
             <Link to={"/meal"}>
               <button>Add Meals</button>
             </Link>
-            <Meal param={meals} />
+            <Meal param={meals} remove={deleteMeal} />
           </Route>
           <Route path={"/meals/:id"}>
             <Details param={meals} />
           </Route>
           <Route path={"/meal"}>
-            <MealForm />
-            <Meal param={meals} deleteMeal={removeMeal} />
+            <MealForm postData={postData} />
+            <Meal param={meals} remove={deleteMeal} />
           </Route>
         </Switch>
       )}
@@ -66,7 +72,7 @@ export function Home() {
   );
 }
 
-function Meal({ param, deleteMeal }) {
+function Meal({ param, remove }) {
   return (
     <div>
       {param.map((meal) => (
@@ -74,9 +80,7 @@ function Meal({ param, deleteMeal }) {
           <Link to={`/meals/${meal.id}`}>
             <h2 style={{ color: "red" }}>{meal.title}</h2>
           </Link>
-          <span>
-            <button onClick={() => deleteMeal(meal.id)}>Delete</button>
-          </span>
+          <button onClick={() => remove(meal.id)}>Delete</button>
         </div>
       ))}
     </div>
@@ -85,7 +89,7 @@ function Meal({ param, deleteMeal }) {
 
 function Details({ param }) {
   const params = useParams();
-  console.log(param);
+
   const currentParam = param.find(
     (paramId) => Number(params.id) === paramId.id
   );
@@ -93,11 +97,9 @@ function Details({ param }) {
   return (
     <div>
       <Link to={"/"}> Home </Link>
-
       <h3>{currentParam.created_date}</h3>
       <h3>{currentParam.price} dkk</h3>
       <h3>{currentParam.title}</h3>
-
       <div>
         <Reservations />
       </div>

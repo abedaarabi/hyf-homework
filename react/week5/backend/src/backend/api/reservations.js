@@ -23,12 +23,11 @@ const reservationsRouter = express.Router();
 //   }
 // });
 
-// .where({
-//       mealId: req.params.mealId,
-//     });
-reservationsRouter.get("/", async (req, res) => {
+reservationsRouter.get("/:mealId", async (req, res) => {
   try {
-    const data = await knex("meal_reservation");
+    const data = await knex("meal_reservation").where({
+      mealId: req.params.mealId,
+    });
 
     res.json(data);
   } catch (error) {
@@ -70,7 +69,7 @@ reservationsRouter.post("/", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       id: req.body.id,
-      // mealId: req.body.mealId,
+      mealId: req.body.mealId,
     });
     res.json(reservation);
   } catch (error) {
