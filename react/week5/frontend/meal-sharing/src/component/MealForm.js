@@ -43,6 +43,10 @@ function MealForm({ postData }) {
           <input type="text" name="price" ref={register} />
         </div>
         <div>
+          <label>image</label>
+          <input type="file" name="image" ref={register} />
+        </div>
+        <div>
           <button type="submit">Add Meal</button>
         </div>
       </form>
