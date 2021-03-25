@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Reservations from "./Reservations";
-import ReservationFrom from "./ReservationFrom";
+
 import MealForm from "./MealForm";
 import {
   BrowserRouter as Router,
@@ -12,18 +12,27 @@ import {
 
 export function Home() {
   const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const fetctData = async () => {
     const response = await (await fetch("http://localhost:5000/")).json();
-
-    console.log(response);
     setMeals(response);
+    setLoading(false);
+  };
+
+  const removeMeal = async (id) => {
+    const reminMeal = meals.filter((meal) => meal.id !== id);
+    const axios = require("axios");
+    await axios.delete(`http://localhost:5000/reservations?id=${id}`);
+    console.log(reminMeal);
+    setMeals(reminMeal);
   };
 
   useEffect(() => {
     document.title = "Meal Share";
     fetctData();
   }, []);
-
+  console.log(loading, meals);
   return (
     <Router>
       <div>
@@ -31,26 +40,33 @@ export function Home() {
           Meal App
         </h1>
       </div>
-      <Link to={"/meal"}>
-        <button>Add Meal</button>
-      </Link>
-      <Switch>
-        <Route exact path={"/"}>
-          <Meal param={meals} />
-        </Route>
-        <Route path={"/meals/:id"}>
-          <Details param={meals} />
-        </Route>
-        <Route path={"/meal"}>
-          <MealForm />
-          <Meal param={meals} />
-        </Route>
-      </Switch>
+
+      {loading ? (
+        <div>
+          <h1>Loading..</h1>
+        </div>
+      ) : (
+        <Switch>
+          <Route exact path={"/"}>
+            <Link to={"/meal"}>
+              <button>Add Meals</button>
+            </Link>
+            <Meal param={meals} />
+          </Route>
+          <Route path={"/meals/:id"}>
+            <Details param={meals} />
+          </Route>
+          <Route path={"/meal"}>
+            <MealForm />
+            <Meal param={meals} deleteMeal={removeMeal} />
+          </Route>
+        </Switch>
+      )}
     </Router>
   );
 }
 
-function Meal({ param }) {
+function Meal({ param, deleteMeal }) {
   return (
     <div>
       {param.map((meal) => (
@@ -58,6 +74,9 @@ function Meal({ param }) {
           <Link to={`/meals/${meal.id}`}>
             <h2 style={{ color: "red" }}>{meal.title}</h2>
           </Link>
+          <span>
+            <button onClick={() => deleteMeal(meal.id)}>Delete</button>
+          </span>
         </div>
       ))}
     </div>
@@ -66,6 +85,7 @@ function Meal({ param }) {
 
 function Details({ param }) {
   const params = useParams();
+  console.log(param);
   const currentParam = param.find(
     (paramId) => Number(params.id) === paramId.id
   );
@@ -79,7 +99,6 @@ function Details({ param }) {
       <h3>{currentParam.title}</h3>
 
       <div>
-        <ReservationFrom />
         <Reservations />
       </div>
     </div>

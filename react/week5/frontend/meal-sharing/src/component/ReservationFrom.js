@@ -1,11 +1,21 @@
 import { React } from "react";
 import { useForm } from "react-hook-form";
-function ReservationFrom() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
+
+function ReservationFrom({ postItem }) {
   const { register, handleSubmit } = useForm("");
+  const params = useParams();
 
   const onSubmit = (data) => {
     data.id = Math.floor(Math.random() * 100);
-    console.log(data);
+    data.mealId = params.id;
+
     if (!data.name || !data.email) {
       return alert("Inputs Empty");
     } else {
@@ -14,6 +24,7 @@ function ReservationFrom() {
         .post("http://localhost:5000/reservations", data)
         .then((response) => console.log(response))
         .catch((err) => console.log(err));
+      postItem(data);
     }
   };
   return (

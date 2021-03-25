@@ -23,6 +23,9 @@ const reservationsRouter = express.Router();
 //   }
 // });
 
+// .where({
+//       mealId: req.params.mealId,
+//     });
 reservationsRouter.get("/", async (req, res) => {
   try {
     const data = await knex("meal_reservation");
@@ -67,6 +70,7 @@ reservationsRouter.post("/", async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       id: req.body.id,
+      // mealId: req.body.mealId,
     });
     res.json(reservation);
   } catch (error) {

@@ -1,30 +1,35 @@
 import { React, useState, useEffect } from "react";
+import ReservationFrom from "./ReservationFrom";
 
-function Reservations(props) {
+function Reservations() {
   const [reservations, setReservations] = useState([]);
 
-  const fetctData = async () => {
-    const response = await (
-      await fetch("http://localhost:5000/reservations")
-    ).json();
-
-    setReservations(response);
+  const addItem = (data) => {
+    const newReservations = reservations.concat(data);
+    setReservations(newReservations);
   };
 
+  const fetctData = () => {
+    fetch("http://localhost:5000/reservations")
+      .then((res) => res.json())
+      .then((data) => setReservations(data))
+      .catch((err) => console.log(err));
+  };
   const remove = async (id) => {
     const axios = require("axios");
-    // const deletedId = reservations.filter((item) => item.id !== id);
-
+    const newArr = reservations.filter((item) => item.id !== id);
+    console.log(newArr);
     await axios.delete(`http://localhost:5000/reservations?id=${id}`);
+    setReservations(newArr);
   };
   useEffect(() => {
     fetctData();
   }, []);
-
   return (
     <div>
+      <ReservationFrom postItem={addItem} />
       {reservations.map((reservation) => (
-        <li>
+        <li key={reservation.id}>
           <p>name: {reservation.name}</p>
           <p>email: {reservation.email}</p>
           <p>phonenumber: {reservation.phonenumber}</p>
