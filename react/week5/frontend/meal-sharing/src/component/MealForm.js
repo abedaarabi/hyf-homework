@@ -5,14 +5,25 @@ function MealForm({ postData }) {
   const { register, handleSubmit } = useForm("");
 
   const onSubmit = (data) => {
+    const dataForm = new FormData();
     data.id = Math.floor(Math.random() * 100);
-    console.log(data);
+    // data.image = data.image[0];
+    dataForm.append("image", data.image[0]);
+    dataForm.append("title", data.title);
+    dataForm.append("reviews", data.reviews);
+    dataForm.append("price", data.price);
+    dataForm.append("created_date", data.created_date);
+    dataForm.append("limit", data.limit);
+
+    console.log(dataForm);
+
     if (!data.title || !data.limit) {
       return alert("Inputs Empty");
     } else {
       const axios = require("axios");
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
       axios
-        .post("http://localhost:5000/meal", data)
+        .post("http://localhost:5000/meal", dataForm, config)
         .then((response) => console.log(response))
         .catch((err) => console.log(err));
       postData(data);

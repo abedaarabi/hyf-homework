@@ -38,7 +38,7 @@ export function Home() {
     document.title = "Meal Share";
     fetctData();
   }, []);
-  console.log(meals);
+
   return (
     <Router>
       <div>
