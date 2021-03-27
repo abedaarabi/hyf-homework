@@ -1,0 +1,65 @@
+ {
+                "objectid": 10511,
+                "name": "Basic Wall [253025]",
+                "externalId": "501c25fb-494a-4bbf-bf8e-ac3d150cf9bf-0003dc61",
+                "properties": {
+                    "Constraints": {
+                        "Location Line": "Wall Centerline",
+                        "Base Constraint": "ET0",
+                        "Base Offset": "0.000 mm",
+                        "Base is Attached": "No",
+                        "Base Extension Distance": "0.000 mm",
+                        "Top Constraint": "Up to level: ETT",
+                        "Unconnected Height": "5000.000 mm",
+                        "Top Offset": "250.000 mm",
+                        "Top is Attached": "No",
+                        "Top Extension Distance": "0.000 mm",
+                        "Room Bounding": "Yes",
+                        "Related to Mass": "No",
+                        "Cross-Section": "Vertical"
+                    },
+
+                    "Dimensions": {
+                        "Length": "20500.000 mm",
+                        "Area": "102.500 m^2",
+                        "Volume": "15.375 m^3"
+                    },
+                    "Identity Data": {
+                        "Type Name": "Beton vægelement - 150mm - L3",
+                        "Lyd": "",
+                        "Workset": "01 - Structural Components",
+                        "Edited by": ""
+                    },
+                    "Phasing": {
+                        "Status": "",
+                        "Fagkode": "",
+                        "Phase Created": "New Construction",
+                        "Phase Demolished": "None"
+                    },                 
+                    "Analysis Results": {
+                        "CQWallGrossArea": "0.000 m^2"
+                    },
+                    "Model Properties": {
+                        "Workset (Manual)": "No"
+                    },
+                    "Visibility": {
+                        "Tender Code": ""
+                    },                   
+                    "Construction": {
+                        "Structure": "",
+                        "Wrapping at Inserts": "Do not wrap",
+                        "Wrapping at Ends": "None",
+                        "Width": "150.000 mm",
+                        "Function": "Interior"
+                    },           
+                    "Materials and Finishes": {
+                        "Structural Material": "Betonelement - Væg - 2% Steel"
+                    },
+                    "Analytical Properties": {
+                        "Heat Transfer Coefficient (U)": "6.973 W/(m²·K)",
+                        "Thermal Resistance (R)": "0.143 (m²·K)/W",
+                        "Thermal Mass": "21.058 kJ/K",
+                        "Absorptance": "0.100",
+                        "Roughness": "1"
+                    },
+                    
